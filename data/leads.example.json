@@ -1,12 +1,12 @@
 [
   {
-    "name": "张三",
+    "name": "客户姓名",
     "phone": "13800000000",
     "wechat": "wechatid",
     "area": "天河区",
-    "vehicle": "轿车",
-    "duration": "15天",
+    "vehicle": "SUV",
+    "duration": "长期",
     "budget": "300-400",
-    "notes": "希望室内停车"
+    "notes": "希望安全、方便长期停放"
   }
 ]

@@ -1,1 +1,149 @@
-<!DOCTYPE html><html lang='zh-CN'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>GZ Parking V4 Business</title><link rel='stylesheet' href='style.css'></head><body><h1>GZ Parking V4 Business 页面示例</h1></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>广州月保车位｜长期停车咨询｜有派车友汇</title>
+  <meta name="description" content="广州长期停车、月保车位、闲置车辆停放、出差停车咨询平台。支持天河、白云、番禺、黄埔等区域。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#"><img src="assets/logo.svg" alt="有派车友汇"></a>
+      <nav class="nav-menu">
+        <a href="#parking">车位列表</a>
+        <a href="#process">服务流程</a>
+        <a href="#contact">提交需求</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="nav-cta" href="#contact">立即咨询</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">广州长期停车 · 月保车位</span>
+        <h1>帮你找到安全、省心、价格合适的长期停车位</h1>
+        <p>适合车辆长期停放、出差停放、闲置车辆停放。支持广州多区域合作停车场咨询。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#parking">查看车位</a>
+          <a class="btn green" href="#contact">微信咨询</a>
+          <a class="btn ghost" href="#contact">提交需求</a>
+        </div>
+        <div class="trust-row">
+          <span>长期停放</span><span>月保车位</span><span>广州多区域</span><span>GitHub 开源</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>快速咨询</h3>
+        <p>告诉我们区域、车型、停放时间，帮你匹配合适车位。</p>
+        <div class="contact-line"><span>电话</span><strong>13800000000</strong></div>
+        <div class="contact-line"><span>微信</span><strong>youpaicheyouhui</strong></div>
+        <img src="assets/qrcode-placeholder.svg" alt="微信二维码预留">
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="stats container">
+      <div class="stat-card"><strong id="parkingCount">0</strong><span>合作停车场</span></div>
+      <div class="stat-card"><strong id="spaceCount">0</strong><span>剩余车位</span></div>
+      <div class="stat-card"><strong id="areaCount">0</strong><span>覆盖区域</span></div>
+      <div class="stat-card"><strong id="minPrice">0</strong><span>最低月租</span></div>
+    </section>
+
+    <section id="parking" class="section container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Parking List</span>
+          <h2>月保车位列表</h2>
+          <p>按区域、价格、关键词快速筛选。车位数据由 <code>data/parking.json</code> 管理。</p>
+        </div>
+        <div class="filters">
+          <select id="areaFilter"><option value="all">全部区域</option></select>
+          <select id="priceFilter">
+            <option value="all">全部价格</option>
+            <option value="300">300元以内</option>
+            <option value="400">400元以内</option>
+          </select>
+          <label class="checkbox"><input id="availableOnly" type="checkbox"> 只看有位</label>
+          <input id="searchInput" type="search" placeholder="搜索区域 / 停车场 / 类型">
+        </div>
+      </div>
+      <div id="parkingList" class="parking-grid"></div>
+    </section>
+
+    <section id="process" class="section process-section">
+      <div class="container">
+        <span class="eyebrow">Service Process</span>
+        <h2>服务流程</h2>
+        <div class="process-grid">
+          <div class="process-card"><b>01</b><h3>提交需求</h3><p>填写停车区域、车型、预算和停放时间。</p></div>
+          <div class="process-card"><b>02</b><h3>匹配车位</h3><p>根据区域和预算推荐合作停车场。</p></div>
+          <div class="process-card"><b>03</b><h3>确认细节</h3><p>确认价格、位置、进出方式和规则。</p></div>
+          <div class="process-card"><b>04</b><h3>开始停放</h3><p>确认后办理月保，开始长期停放。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section container contact-grid">
+      <div class="contact-copy">
+        <span class="eyebrow">Lead Form</span>
+        <h2>提交停车需求</h2>
+        <p>静态开源版本不连接后台，点击按钮可以复制客户需求信息，发送到微信即可。</p>
+        <div class="contact-box">
+          <p><strong>电话：</strong><a href="tel:13800000000">13800000000</a></p>
+          <p><strong>微信：</strong><button id="copyWechat">复制微信号</button> <span id="wechatId">youpaicheyouhui</span></p>
+        </div>
+      </div>
+
+      <form class="lead-form" onsubmit="return false;">
+        <label>姓名<input id="leadName" type="text" placeholder="请输入姓名"></label>
+        <label>手机号<input id="leadPhone" type="text" placeholder="请输入手机号"></label>
+        <label>微信号<input id="leadWechat" type="text" placeholder="请输入微信号"></label>
+        <label>停车区域<input id="leadArea" type="text" placeholder="例如：天河区"></label>
+        <label>车型<input id="leadCar" type="text" placeholder="例如：SUV / 轿车"></label>
+        <label>停放时长<input id="leadDuration" type="text" placeholder="例如：15天 / 1个月 / 长期"></label>
+        <label>预算范围<input id="leadBudget" type="text" placeholder="例如：300-400元/月"></label>
+        <label class="full">备注<textarea id="leadNote" placeholder="例如：希望室内、24小时监控、长期不用车"></textarea></label>
+        <button type="button" id="copyDemandBtn">复制需求信息</button>
+        <p class="form-tip">复制后发送给微信客服即可。</p>
+      </form>
+    </section>
+
+    <section id="faq" class="section container">
+      <span class="eyebrow">FAQ</span>
+      <h2>常见问题</h2>
+      <div class="faq-grid">
+        <details open><summary>价格是固定的吗？</summary><p>页面价格为参考价，具体价格根据停车场、周期和余位确认。</p></details>
+        <details><summary>适合每天通勤停车吗？</summary><p>当前更适合长期停放、闲置车辆、出差停车等场景。</p></details>
+        <details><summary>如何新增车位？</summary><p>修改 data/parking.json，复制一条数据并调整字段即可。</p></details>
+        <details><summary>能否接在线支付？</summary><p>静态版不接支付，后续可升级微信小程序和商户号。</p></details>
+      </div>
+    </section>
+
+    <section class="section container open-source">
+      <span class="eyebrow">Open Source</span>
+      <h2>开源项目说明</h2>
+      <p>本项目适合学习 GitHub Pages、JSON 数据管理、停车场本地生活服务落地页开发，也可作为 Codex for Open Source 申请项目基础。</p>
+    </section>
+  </main>
+
+  <div class="float-actions">
+    <a href="tel:13800000000">电话咨询</a>
+    <a href="#contact">微信咨询</a>
+    <a href="#contact">提交需求</a>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 有派车友汇 · GZ Parking V4 Final</p>
+      <p>Open Source · GitHub Pages · JSON Data</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
