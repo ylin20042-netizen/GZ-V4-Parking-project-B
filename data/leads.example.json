@@ -1,0 +1,12 @@
+[
+  {
+    "name": "张三",
+    "phone": "13800000000",
+    "wechat": "wechatid",
+    "area": "天河区",
+    "vehicle": "轿车",
+    "duration": "15天",
+    "budget": "300-400",
+    "notes": "希望室内停车"
+  }
+]
